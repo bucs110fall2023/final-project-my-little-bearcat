@@ -6,13 +6,13 @@
 
 ## Team Members
 
-<< List team member names >>
+Allison Jenkins, David Fayle
 
 ***
 
 ## Project Description
 
-<< Give an overview of your project >>
+A "you choose game" with the subject being a bearcat.
 
 ***    
 
