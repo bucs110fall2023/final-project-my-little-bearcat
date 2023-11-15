@@ -6,7 +6,7 @@
 
 ## Team Members
 
-<< List team member names >>
+Allison Jenkins, David Fayle
 
 ***
 
