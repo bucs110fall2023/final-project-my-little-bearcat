@@ -12,7 +12,7 @@ Allison Jenkins, David Fayle
 
 ## Project Description
 
-<< Give an overview of your project >>
+A remake of the game Doodle Jump
 
 ***    
 
