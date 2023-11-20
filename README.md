@@ -12,7 +12,7 @@ Allison Jenkins, David Fayle
 
 ## Project Description
 
-A "you choose game" with the subject being a bearcat.
+<< Give an overview of your project >>
 
 ***    
 
