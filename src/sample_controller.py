@@ -2,7 +2,9 @@
 class Controller:
   
   def __init__(self):
-    #setup pygame data
+    pygame.init()
+    self.screen = pygame.display.set_mode()
+    
     
   def mainloop(self):
     #select state loop
@@ -20,7 +22,21 @@ class Controller:
       
   def gameloop(self):
       #event loop
-
+      running = True
+      while running:
+        for event in pygame.event.get():
+          if event.type == pygame.K_SPACE:
+          #move BC up
+          #use set_repeat to make jump higher?
+          if event.type == pygame.K_D:
+          #move right
+          if event.type == pygame.K_A:
+          #moveleft
+          if event.type == pygame.QUIT:
+            running = False
+          
+          
+           
       #update data
 
       #redraw
