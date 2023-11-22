@@ -6,5 +6,9 @@ class Plateform(pygame.sprite.Sprite):
         self.height = 20
         self.image = pygame.Surface((self.width, self.height))
         self.image.fill("White")
-        self
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    
 
