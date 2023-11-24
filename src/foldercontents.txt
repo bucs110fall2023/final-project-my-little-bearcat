@@ -1,2 +1,0 @@
-All of your python files go in this folder
-#hello there Allison 33333
