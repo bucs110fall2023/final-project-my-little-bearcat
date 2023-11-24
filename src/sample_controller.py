@@ -2,19 +2,25 @@ import pygame
 from Doodle import Doodle
 from Platforms import Platforms
 from Springs import Springs
-
 class Controller:
-  
+
   def __init__(self):
     pygame.init()
+    self.screen_width = 600
+    self.screen_height = 800
+    self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+    pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
     self.screen = pygame.display.set_mode()
+
+    self.Doodle = Doodle(self.screen_width, self.screen_height)
+    self.pl
     
     
   def mainloop(self):
     #select state loop
     
   
-  ### below are some sample loop states ###
+    ## below are some sample loop states ###
 
   def menuloop(self):
     
