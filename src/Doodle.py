@@ -1,6 +1,6 @@
 import pygame
 class Doodle:
-    def __init__(self, image, flip, x, y):
+    def __init__(self, image, flip, x, y, width, height):
         self.image = image
         self.flip = flip
         self.x = x
