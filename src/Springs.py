@@ -1,6 +1,6 @@
 import pygame
 class Springs:
-    def __init__(self x,y):
+    def __init__(self x, y, image):
         super().__init__()
         self.image = pygame.Surface((35, 15))
         self.image.fill("yellow")

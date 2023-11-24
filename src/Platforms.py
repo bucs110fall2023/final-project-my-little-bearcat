@@ -1,5 +1,5 @@
 import pygame
-class Plateform(pygame.sprite.Sprite):
+class Platform(pygame.sprite.Sprite):
     def __init__ (self x,y) :
         super().__init()
         self.width = 70
