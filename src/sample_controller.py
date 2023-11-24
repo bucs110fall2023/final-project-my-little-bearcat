@@ -1,3 +1,7 @@
+import pygame
+from Doodle import Doodle
+from Platforms import Platforms
+from Springs import Springs
 
 class Controller:
   
