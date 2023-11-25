@@ -2,6 +2,7 @@ import pygame
 from Doodle import Doodle
 from Platforms import Platforms
 from Springs import Springs
+
 class Controller:
 
   def __init__(self):
@@ -35,15 +36,17 @@ class Controller:
       running = True
       while running:
         for event in pygame.event.get():
-          if event.type == pygame.K_SPACE:
-          #move BC up
-          #use set_repeat to make jump higher?
-          if event.type == pygame.K_D:
-          #move right
-          if event.type == pygame.K_A:
-          #moveleft
-          if event.type == pygame.QUIT:
+          if event.type == pygame.QUIT():
             running = False
+          elif event.type == pygame.K_SPACE:
+            #move BC up
+            #use set_repeat to make jump higher?
+            if event.type == pygame.K_D:
+            #move right
+            elif event.type == pygame.K_A:
+            #moveleft
+            elif event.type == pygame.QUIT:
+              running = False
           
           
            
