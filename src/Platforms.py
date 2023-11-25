@@ -1,7 +1,7 @@
 import pygame
-class Platform(pygame.sprite.Sprite):
-    def __init__ (self x,y) :
-        super().__init()
+class Platforms(pygame.sprite.Sprite):
+    def __init__(self, x, y, width, height, image, rect) :
+        super().__init__()
         self.width = 70
         self.height = 20
         self.image = pygame.Surface((self.width, self.height))
