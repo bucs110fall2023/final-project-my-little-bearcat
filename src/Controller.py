@@ -26,6 +26,7 @@ class Controller:
   def menuloop(self):
     
       #event loop
+      screen.fill("aquamarine")
 
       #update data
 
