@@ -12,7 +12,6 @@ class Controller:
     self.screen_height = 800
     self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
-    self.screen = pygame.display.set_mode()
   #Initialize objects
     self.Doodle = Doodle(self.screen_width, self.screen_height)
     self.platforms = Platforms()
@@ -45,10 +44,10 @@ class Controller:
               pass
             #move BC up
             #use set_repeat to make jump higher?
-            elif event.type == pygame.K_D:
+            elif event.key == pygame.K_d:
               pass
             #move right
-            elif event.type == pygame.K_A:
+            elif event.key == pygame.K_a:
               pass
             #moveleft
           
