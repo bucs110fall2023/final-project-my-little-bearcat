@@ -1,8 +1,9 @@
 import pygame
+import time
 from Doodle import Doodle
 from Platforms import Platforms
 from Springs import Springs
-
+menu_options = ("s", "h")
 class Controller:
 
   def __init__(self, x, y):
@@ -13,18 +14,31 @@ class Controller:
     self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
   #Initialize objects
-    self.Doodle = Doodle(self.screen_width, self.screen_height)
+    self.doodle = Doodle(self.screen_width, self.screen_height)
     self.platforms = Platforms()
     
     
   def mainloop(self):
     #select state loop
-    pass
+    self.menuloop()
   
     ## below are some sample loop states ###
-
+ 
   def menuloop(self):
-    
+    while True:
+      print()
+      print("MENU")
+      print("s = start")
+      print("h = help")
+
+      print()
+      user_input = input("Please Enter an Option")
+      if user_input in menu_options:
+        break
+
+      else:
+        print()
+        print("Option not available, pick again!")
       #event loop
       # self.screen.fill("aquamarine")
 
@@ -51,6 +65,9 @@ class Controller:
               pass
             #moveleft
           
+        self.screen.fill("white")
+        pygame.display.flip()
+        
 
       #update data
 
