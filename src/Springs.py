@@ -1,9 +1,7 @@
 import pygame
 class Springs:
-    def __init__(self x, y, image):
-        super().__init__()
-        self.image = pygame.Surface((35, 15))
+    def __init__(self x, y, ):
+        self.rect = pygame.Rect(x, y, 35, 15)
+        self.image = pygame.Surface((self.rect.width, self.rect.height))
         self.image.fill("yellow")
-        self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = yield
+    

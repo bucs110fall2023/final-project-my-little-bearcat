@@ -12,7 +12,7 @@ Allison Jenkins, David Fayle
 
 ## Project Description
 
-<< Give an overview of your project >>
+We adjusted our project, modeling it after the classic "Doodle Jump" game. Long long ago, back in the 2010s, we both distinctly remember tapping and moving the Doodle figure around the screen of our parent's phone, hoping to beat our previous high score. We decided to recreate this nostalgia and make it our own. Enjoy "Bearcat Jump"!!!
 
 ***    
 
