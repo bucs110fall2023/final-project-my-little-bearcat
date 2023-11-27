@@ -9,7 +9,7 @@ class Button:
         self.text = text
         
     def draw(self, screen):
-        pygame.draw.rect(screen, pygame.Color(self.color) (self.x, self.y, self.width, self.height))
+        pygame.draw.rect(screen, pygame.Color(self.color), (self.x, self.y, self.width, self.height))
         
         if self.text !='':
             font = pygame.font.SysFont('Times New Roman', 30)

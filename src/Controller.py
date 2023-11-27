@@ -3,7 +3,9 @@ import time
 from Doodle import Doodle
 from Platforms import Platforms
 from Springs import Springs
+from Button import Button
 menu_options = ("s", "h")
+
 class Controller:
 
   def __init__(self, x, y):
@@ -14,8 +16,11 @@ class Controller:
     self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
   #Initialize objects
-    self.doodle = Doodle(self.screen_width, self.screen_height)
-    self.platforms = Platforms()
+    # self.Doodle = Doodle(self.screen_width, self.screen_height)
+    # self.Platforms = Platforms()
+    # self.Springs = Springs()
+  
+
     
     
   def mainloop(self):
