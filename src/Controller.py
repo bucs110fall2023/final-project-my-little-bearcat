@@ -16,7 +16,7 @@ class Controller:
     self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
   #Initialize objects
-    # self.Doodle = Doodle(self.screen_width, self.screen_height)
+    # self.Doodle = Doodle (20, 20)
     # self.Platforms = Platforms()
     # self.Springs = Springs()
   
@@ -60,6 +60,7 @@ class Controller:
             running = False
           elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
+
               pass
             #move BC up
             #use set_repeat to make jump higher?
@@ -86,6 +87,8 @@ class Controller:
 
       #redraw
 def main():
+  controller = Controller(20,20)
+  controller.mainloop()
   pass
 
 if __name__ == "__main__":
