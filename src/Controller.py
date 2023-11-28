@@ -22,32 +22,28 @@ class Controller:
     
   def mainloop(self):
     #select state loop
-    self.menuloop()
-  
+    while True:
+      if self.STATE == "MENU":
+        self.menuloop()
+      elif self.STATE == "GAME":
+        self.gameloop
+      elif self.STATE == "GAMEOVER":
+        self.gameoverloop
     ## below are some sample loop states ###
  
   def menuloop(self):
     while True:
-      print()
-      print("MENU")
-      print("s = start")
-      print("h = help")
-
-      print()
-      user_input = input("Please Enter an Option")
-      if user_input in menu_options:
-        break
-
-      else:
-        print()
-        print("Option not available, pick again!")
+      self.screen.fill('white')
+      b = Button(50, 300, 100, 100, 'red', 'Start Game')
+      b.draw(self.screen)
       #event loop
-      # self.screen.fill("aquamarine")
 
       #update data
 
       #redraw
-    pass
+      pygame.display.flip()
+      pygame.time.wait(1000)
+      
   def gameloop(self):
       #event loop
       running = True
@@ -88,5 +84,5 @@ def main():
   controller.mainloop()
   pass
 
-if __name__ == "__main__":
-  main()
+#if __name__ == "__main__":
+  #main()
