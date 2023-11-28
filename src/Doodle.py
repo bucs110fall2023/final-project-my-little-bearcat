@@ -7,7 +7,6 @@ class Doodle:
         self.movex = 0
         self.movey = 0
         self.frame = 0
-        self.health = 10
         self.is_jumping = False
         self.is_falling = True
         self.images = []

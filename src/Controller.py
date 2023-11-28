@@ -62,15 +62,20 @@ class Controller:
             running = False
           elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-              pass
+              Doodle.jump()
             #move BC up
             #use set_repeat to make jump higher?
             elif event.key == pygame.K_d:
-              pass
+              Doodle.control(steps, 0)
             #move right
             elif event.key == pygame.K_a:
-              pass
+              Doodle.control(-steps, 0)
             #moveleft
+          elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_d:
+              Doodle.control(-steps, 0)
+            if event.key == pygame.K_a:
+              Doodle.control(steps, 0)
           
         self.screen.fill("white")
         pygame.display.flip()
