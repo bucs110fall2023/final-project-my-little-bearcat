@@ -8,6 +8,10 @@ menu_options = ("s", "h")
 
 class Controller:
 
+  clock = pygame.time.Clock()
+  main = True
+  
+
   def __init__(self, x, y):
   #Initialize pygame
     pygame.init()
@@ -48,6 +52,7 @@ class Controller:
       pygame.time.wait(1000)
       
   def gameloop(self):
+      self.flipped = not self.flipped
       #event loop
       running = True
   
