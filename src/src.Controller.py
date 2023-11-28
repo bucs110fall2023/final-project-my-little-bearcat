@@ -7,7 +7,7 @@ from Button import Button
 menu_options = ("s", "h")
 
 class Controller:
-
+  
   clock = pygame.time.Clock()
   main = True
   
@@ -57,6 +57,7 @@ class Controller:
       running = True
   
       while running:
+        steps = 10
         for event in pygame.event.get():
           if event.type == pygame.QUIT:
             running = False
