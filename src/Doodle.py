@@ -7,11 +7,10 @@ class Doodle:
         self.movex = 0
         self.movey = 0
         self.frame = 0
-        self.health = 10
         self.is_jumping = False
         self.is_falling = True
         self.images = []
-
+        self.velocity = 0
         bearcatpic = pygame.image.load("bearcatpic.jpg")
         bearcatpic = pygame.transform.scale(bearcatpic, (10, 10))
         self.images.append(bearcatpic)
@@ -29,13 +28,16 @@ class Doodle:
             self.is_jumping = True
 
     def update(self):
+        self.velocity += 1
+        self.rect.y += self.velocity
+
+        if self.rect.top > (900):
+            self.rect.bottom = 0
         
-        self.gravity()
 
         collisions = pygame.sprite.spritecollide(self, platforms, False)
         for platform in collisions:
             if self.is_falling:
-
                 self.rect.y = platform.rect.y - self.rect.height
                 self.is_falling = False
                 self.is_jumping = False
