@@ -19,6 +19,9 @@ class Controller:
     self.Doodle = Doodle (20, 20)
     self.Platforms = Platforms()
     self.Springs = Springs()
+    self.Button = Button()
+  # For mainloop
+    self.STATE = "MENU"
     
   def mainloop(self):
     #select state loop
@@ -26,9 +29,9 @@ class Controller:
       if self.STATE == "MENU":
         self.menuloop()
       elif self.STATE == "GAME":
-        self.gameloop
+        self.gameloop()
       elif self.STATE == "GAMEOVER":
-        self.gameoverloop
+        self.gameoverloop()
     ## below are some sample loop states ###
  
   def menuloop(self):
@@ -79,10 +82,10 @@ class Controller:
       #update data
 
       #redraw
-def main():
-  controller = Controller(20,20)
-  controller.mainloop()
-  pass
+#def main():
+  #controller = Controller(20,20)
+  #controller.mainloop()
+  #pass
 
 #if __name__ == "__main__":
   #main()
