@@ -8,9 +8,11 @@ class Doodle:
         self.movey = 0
         self.frame = 0
         self.health = 10
-        self.is_jumping = True
+        self.is_jumping = False
         self.is_falling = True
-        self.images
+        self.images = []
+
+        bearcatpic = pygame.image.load(bearcatpic.jpg)
     
     def gravity(self):
         if self.is_jumping:
@@ -25,7 +27,6 @@ class Doodle:
             self.is_jumping = True
 
     def update(self):
-
         #moving left
         if self.movex < 0:
 
@@ -40,13 +41,6 @@ class Doodle:
     #     self.image = pygame.transform.scale(self.image, (width, height))
     #     self.flip = False
         
-   def flip_direction(self, left):
-        self.image = pygame.transform.flip(self.image, True, False)
-        self.flipped = not self.flipped
-
-
-
-def jump(self):
-        if self.is_jumping is False:
-          self.is_falling = False
-          self.isjumping = True
+#    def flip_direction(self, left):
+#         self.image = pygame.transform.flip(self.image, True, False)
+#         self.flipped = not self.flipped

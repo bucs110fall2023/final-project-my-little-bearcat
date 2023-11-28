@@ -16,9 +16,9 @@ class Controller:
     self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
   #Initialize objects
-    # self.Doodle = Doodle (20, 20)
-    # self.Platforms = Platforms()
-    # self.Springs = Springs()
+    self.Doodle = Doodle (20, 20)
+    self.Platforms = Platforms()
+    self.Springs = Springs()
     
   def mainloop(self):
     #select state loop
@@ -54,11 +54,10 @@ class Controller:
   
       while running:
         for event in pygame.event.get():
-          if event.type == pygame.QUIT():
+          if event.type == pygame.QUIT:
             running = False
           elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-              player.jump()
               pass
             #move BC up
             #use set_repeat to make jump higher?
