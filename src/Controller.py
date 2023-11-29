@@ -22,7 +22,7 @@ class Controller:
     
   #Initialize objects
     self.Doodle = Doodle ()
-    Platforms.create_plateforms()
+    Platforms.create_platforms()
     self.Springs = Springs()
     self.Button = Button()
     

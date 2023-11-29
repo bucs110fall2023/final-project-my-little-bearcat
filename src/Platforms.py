@@ -11,7 +11,7 @@ class Platforms(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
     
-    def create_plateforms():
+    def create_platforms():
         x = random.randint(0, 600)
         y = random.randint(0, 700)
         width = 60
