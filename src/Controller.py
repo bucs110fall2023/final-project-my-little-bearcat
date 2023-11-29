@@ -1,9 +1,9 @@
 import pygame
 import time
-from Doodle import Doodle
-from Platforms import Platforms
-from Springs import Springs
-from Button import Button
+from src.Doodle import Doodle
+from src.Platforms import Platforms
+from src.Springs import Springs
+from src.Button import Button
 menu_options = ("s", "h")
 
 class Controller:
@@ -19,11 +19,13 @@ class Controller:
     self.screen_height = 800
     self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
+    
   #Initialize objects
-    self.Doodle = Doodle (20, 20)
-    self.Platforms = Platforms()
+    self.Doodle = Doodle ()
+    Platforms.create_plateforms()
     self.Springs = Springs()
     self.Button = Button()
+    
   # For mainloop
     self.STATE = "MENU"
     

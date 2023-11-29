@@ -1,9 +1,13 @@
+import os
 import pygame
 import sys
+
 platforms = pygame.sprite.Group()
-class Doodle:
+
+class Doodle(pygame.sprite.Sprite):
     def __init__(self):
-        pygame.sprite.Sprite.__init__(self)
+        super().__init__()
+        #pygame.sprite.Sprite.__init__(self)
         self.movex = 0
         self.movey = 0
         self.frame = 0
@@ -11,9 +15,11 @@ class Doodle:
         self.is_falling = True
         self.images = []
         self.velocity = 0
-        bearcatpic = pygame.image.load("bearcatpic.jpg")
-        bearcatpic = pygame.transform.scale(bearcatpic, (10, 10))
-        self.images.append(bearcatpic)
+        
+        #getting image
+        image_path = os.path.join("assets", "bearcatpic.jpg")
+        self.image = pygame.image.load(image_path)
+        self.rect = self.image.get_rect()
     
     def gravity(self):
         if self.is_jumping:
@@ -46,9 +52,3 @@ class Doodle:
             self.image = pygame.transform.flip(self.images [0], True, False)
         if self.movex > 0:
             self.image = self.images[0]
-        
-
-        
-        
-
-
