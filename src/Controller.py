@@ -1,9 +1,9 @@
 import pygame
 import time
-from src.Doodle import Doodle
-from src.Platforms import Platforms
-from src.Springs import Springs
-from src.Button import Button
+from Doodle import Doodle
+from Platforms import Platforms
+from Springs import Springs
+from Button import Button
 menu_options = ("s", "h")
 
 class Controller:
