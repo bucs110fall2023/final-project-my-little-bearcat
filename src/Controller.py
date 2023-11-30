@@ -68,14 +68,10 @@ class Controller:
             self.STATE = "GAME"
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
-          mouse_pos = ppygame.mouse.get_pos()
+          mouse_pos = pygame.mouse.get_pos()
           if self.bquit.is_clicked(mouse_pos):
             running = False
-<<<<<<< HEAD
           if self.bstart.is_clicked(mouse_pos):
-=======
-          if bstart.is_clicked(mouse_pos):
->>>>>>> 20259a5b5a4b008515dc8e849ae5277da9120600
             self.STATE = "GAME"
       #redraw
       
