@@ -23,7 +23,7 @@ class Controller:
   #Initialize objects
     self.doodle = Doodle ()
     Platforms.create_platforms()
-    self.Springs = Springs()
+    self.Springs = Springs(50, 70)
     self.Button = Button()
     
   # For mainloop
