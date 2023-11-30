@@ -22,7 +22,7 @@ class Controller:
     
   #Initialize objects
     self.doodle = Doodle ()
-    Platforms.create_platforms()
+    self.platforms = Platforms.create_platforms()
     self.springs = Springs(50, 70)
     self.Button = Button(50, 300, 100, 100)
     
@@ -77,36 +77,40 @@ class Controller:
             running = False
       #redraw
       
+      
       self.clock.tick(30)
+    pygame.quit()
       
   def gameloop(self):
       running = True
       while running:
-        self.screen.fill("white")
-
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K.SPACE]:
-          self.doodle.jump()
-        if keys[pygame.K_d]:
-          self.doodle.control(10,0)
-        if keys[pygame.K_a]:
-          self.doodle.control(-10,0)
+        self.screen.fill("aqua")
         
-        self.doodle.update()
-        self.platforms.update()
-        self.springs.update()
-
-        self.doodle.draw(self.screen)
-        self.platforms.draw(self.screen)
-        self.springs.draw(self.screen)
-
-        pygame.display.flip()
-
         for event in pygame.event.get():
           if event.type == pygame.QUIT:
             running = False
+          if event.type == pygame.KEYDOWN:
+            keys = pygame.key.get_pressed()
+            if keys[pygame.K.SPACE]:
+              self.doodle.jump()
+            if keys[pygame.K_d]:
+              self.doodle.control(10,0)
+            if keys[pygame.K_a]:
+              self.doodle.control(-10,0)
+        
+        self.doodle.update()
+        self.platforms.update()
+        #self.springs.update()
+
+        #self.doodle.draw(self.screen)
+        #self.platforms.draw(self.screen)
+        #self.springs.draw(self.screen)
+
+        pygame.display.flip()
+
 
         self.clock.tick(30)
+      pygame.quit()
 
       #update data
 
