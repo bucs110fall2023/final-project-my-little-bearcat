@@ -18,7 +18,7 @@ class Platforms(pygame.sprite.Sprite):
         height = 30
         
         return Platforms(x, y, width, height, "white")
-
+    
 
     
 
