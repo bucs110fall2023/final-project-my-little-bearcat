@@ -44,13 +44,15 @@ class Controller:
   def menuloop(self):
     while True:
       self.screen.fill('white')
-      b = Button(50, 300, 200, 100, 'red', 'Start Game')
-      b.draw(self.screen)
       
-      b2 = Button(250, 20, 250, 100, 'red', 'Bearcat Jump')
-      b2.draw(self.screen)
-      b3 = Button(100, 500, 200, 100, 'red', 'Quit')
-      b3.draw(self.screen)
+      bstart = Button(50, 500, 200, 100, 'chartreuse4', 'Start Game')
+      bstart.draw(self.screen)
+      bquit = Button(350, 500, 200, 100, 'coral4', 'Quit')
+      bquit.draw(self.screen)
+      bname = Button(200, 20, 250, 100, 'cadetblue4', 'Bearcat Jump')
+      bname.draw(self.screen)
+      
+      
       #event loop
       pygame.display.flip()
       #update data
@@ -63,7 +65,7 @@ class Controller:
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
           mouse_pos = pygame.mouse.get_pos()
-          if b.is_clicked(mouse_pos):
+          if bquit.is_clicked(mouse_pos):
             running = False
       #redraw
       
