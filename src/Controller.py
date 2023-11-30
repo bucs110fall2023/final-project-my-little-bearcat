@@ -21,7 +21,7 @@ class Controller:
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
     
   #Initialize objects
-    self.Doodle = Doodle ()
+    self.doodle = Doodle ()
     Platforms.create_platforms()
     self.Springs = Springs()
     self.Button = Button()
@@ -67,7 +67,7 @@ class Controller:
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K.SPACE]:
-          self.doodle.jump
+          self.doodle.jump()
         if keys[pygame.K_d]:
           self.doodle.control(10,0)
         if keys[pygame.K_a]:
