@@ -61,6 +61,10 @@ class Controller:
           if event.key == pygame.K_RETURN:
             self.STATE = "GAME"
             running = False
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+          mouse_pos = pygame.mouse.get_pos()
+          if b.is_clicked(mouse_pos):
+            running = False
       #redraw
       
       self.clock.tick(30)
