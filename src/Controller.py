@@ -65,6 +65,8 @@ class Controller:
           mouse_pos = pygame.mouse.get_pos()
           if bquit.is_clicked(mouse_pos):
             running = False
+          if bstart.is_clicked(mouse_pos):
+            self.STATE == "GAME"
       #redraw
       
       self.clock.tick(30)
