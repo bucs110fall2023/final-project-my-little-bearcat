@@ -30,7 +30,8 @@ class Controller:
 
   def mainloop(self):
     #select state loop
-    while True:
+    running = True
+    while running:
       if self.STATE == "MENU":
         self.menuloop()
       elif self.STATE == "GAME":
@@ -66,7 +67,7 @@ class Controller:
           if bquit.is_clicked(mouse_pos):
             running = False
           if bstart.is_clicked(mouse_pos):
-            self.STATE == "GAME"
+            self.STATE = "GAME"
       #redraw
       
       self.clock.tick(30)
