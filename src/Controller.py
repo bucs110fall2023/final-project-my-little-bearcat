@@ -42,7 +42,6 @@ class Controller:
  
   def menuloop(self):
     running = True
-    while True:
       self.screen.fill('white')
       
       bstart = Button(50, 500, 200, 100, 'chartreuse4', 'Start Game')
@@ -54,6 +53,7 @@ class Controller:
       
       #event loop
       pygame.display.flip()
+      
       #update data
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -68,6 +68,7 @@ class Controller:
             running = False
           if bstart.is_clicked(mouse_pos):
             self.STATE = "GAME"
+            running = False
       #redraw
       
       self.clock.tick(30)

@@ -7,7 +7,6 @@ platforms = pygame.sprite.Group()
 class Doodle(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        #pygame.sprite.Sprite.__init__(self)
         self.movex = 0
         self.movey = 0
         self.frame = 0
