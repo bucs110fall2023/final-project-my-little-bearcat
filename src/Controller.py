@@ -8,7 +8,7 @@ menu_options = ("s", "h")
 
 class Controller:
   
-  clock = pygame.time.Clock()
+  
   main = True
   
 
@@ -28,7 +28,8 @@ class Controller:
     
   # For mainloop
     self.STATE = "MENU"
-    
+    self.clock = pygame.time.Clock()
+
   def mainloop(self):
     #select state loop
     while True:
@@ -46,42 +47,78 @@ class Controller:
       b = Button(50, 300, 100, 100, 'red', 'Start Game')
       b.draw(self.screen)
       #event loop
-
-      #update data
-
-      #redraw
       pygame.display.flip()
-      pygame.time.wait(1000)
+      #update data
+      for event in pygame.event.get():
+        if event.type == pygame.QUI:
+          running = False
+        elif event.type == pygame.KEYDOWN:
+          if event.key == pygame.K_RETURN:
+            self.STATE = "GAME"
+            running = False
+      #redraw
+      
+      self.clock.tick(30)
       
   def gameloop(self):
-      self.flipped = not self.flipped
-      #event loop
       running = True
-  
       while running:
-        steps = 10
+        self.screen.fill("white")
+
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K.SPACE]:
+          self.doodle.jump
+        if keys[pygame.K_d]:
+          self.doodle.control(10,0)
+        if keys[pygame.K_a]:
+          self.doodle.control(-10,0)
+        
+        self.doodle.update()
+        self.platforms.update()
+        self.springs.update()
+
+        self.doodle.draw(self.screen)
+        self.platforms.draw(self.screen)
+        self.springs.draw(self.screen)
+
+        pygame.display.flip()
+
         for event in pygame.event.get():
           if event.type == pygame.QUIT:
             running = False
-          elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-              Doodle.jump()
-            #move BC up
-            #use set_repeat to make jump higher?
-            elif event.key == pygame.K_d:
-              Doodle.control(steps, 0)
-            #move right
-            elif event.key == pygame.K_a:
-              Doodle.control(-steps, 0)
-            #moveleft
-          elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_d:
-              Doodle.control(-steps, 0)
-            if event.key == pygame.K_a:
-              Doodle.control(steps, 0)
+
+        self.clock.tick(30)
+      #event loop
+      # while running:
+      #   steps = 10
+      #   for event in pygame.event.get():
+      #     if event.type == pygame.QUIT:
+      #       running = False
+      #     elif event.type == pygame.KEYDOWN:
+      #       if event.key == pygame.K_SPACE:
+      #         Doodle.jump()
+      #       #move BC up
+      #       #use set_repeat to make jump higher?
+      #       elif event.key == pygame.K_d:
+      #         Doodle.control(steps, 0)
+      #       #move right
+      #       elif event.key == pygame.K_a:
+      #         Doodle.control(-steps, 0)
+      #       #moveleft
+      #     elif event.type == pygame.KEYUP:
+      #       if event.key == pygame.K_d:
+      #         Doodle.control(-steps, 0)
+      #       if event.key == pygame.K_a:
+      #         Doodle.control(steps, 0)
           
-        self.screen.fill("white")
-        pygame.display.flip()
+      #     self.screen.fill("white")
+      #     pygame.display.flip()
+      #     for event in pygame.event.get():
+      #       if event.type == pygame.QUIT:
+      #         running = False
+          
+      #     self.clock.tick(30)
+          
         
 
       #update data
@@ -100,5 +137,6 @@ class Controller:
   #controller.mainloop()
   #pass
 
-#if __name__ == "__main__":
-  #main()
+if __name__ == "__main__":
+  controller = Controller(20,20)
+  controller.mainloop()
