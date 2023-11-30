@@ -42,6 +42,7 @@ class Controller:
     ## below are some sample loop states ###
  
   def menuloop(self):
+    running = True
     while True:
       self.screen.fill('white')
       b = Button(50, 300, 200, 100, 'red', 'Start Game')
@@ -63,7 +64,7 @@ class Controller:
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
           mouse_pos = pygame.mouse.get_pos()
-          if b.is_clicked(mouse_pos):
+          if b3.is_clicked(mouse_pos):
             running = False
       #redraw
       
