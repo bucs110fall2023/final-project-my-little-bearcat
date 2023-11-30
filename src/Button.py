@@ -17,4 +17,8 @@ class Button:
             screen.blit(message, (self.x + (self.width/2 - message.get_width()/2), self.y + (self.height/2 - message.get_height()/2)))
 
     def is_clicked(self,mouse_pos):
+<<<<<<< HEAD
+        return self.x < mouse_pos[0] < self.x + self.width and self.y < mouse_pos[1] < self.y +self.height
+=======
          return self.x <= mouse_pos[0] <= self.x + self.width and self.y <= mouse_pos[1] <= self.y +self.height
+>>>>>>> 20259a5b5a4b008515dc8e849ae5277da9120600

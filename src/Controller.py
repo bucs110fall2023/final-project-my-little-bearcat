@@ -15,13 +15,15 @@ class Controller:
     pygame.init()
     self.screen_width = 600
     self.screen_height = 800
+    self.bstart =Button( 50, 500, 200, 100, 'chartreuse4', 'Start Game')
+    self.bquit = Button( 350, 500, 200, 100, 'cora14', 'Quit')
     self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
     
   #Initialize objects
     self.doodle = Doodle ()
     Platforms.create_platforms()
-    self.Springs = Springs(50, 70)
+    self.springs = Springs(50, 70)
     self.Button = Button(50, 300, 100, 100)
     
   # For mainloop
@@ -43,6 +45,9 @@ class Controller:
   def menuloop(self):
     running = True
       self.screen.fill('white')
+
+      self.bstart.draw(self.screen)
+      self.bquit.draw(self.screen)
       
       bstart = Button(50, 500, 200, 100, 'chartreuse4', 'Start Game')
       bstart.draw(self.screen)
@@ -64,9 +69,9 @@ class Controller:
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
           mouse_pos = pygame.mouse.get_pos()
-          if bquit.is_clicked(mouse_pos):
+          if self.bquit.is_clicked(mouse_pos):
             running = False
-          if bstart.is_clicked(mouse_pos):
+          if self.bstart.is_clicked(mouse_pos):
             self.STATE = "GAME"
             running = False
       #redraw
