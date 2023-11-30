@@ -66,7 +66,7 @@ class Controller:
             running = False
         elif event.type == pygame.MOUSEBUTTONDOWN:
           mouse_pos = pygame.mouse.get_pos()
-          if bquit3.is_clicked(mouse_pos):
+          if bquit.is_clicked(mouse_pos):
             running = False
       #redraw
       
