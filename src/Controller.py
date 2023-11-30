@@ -24,7 +24,7 @@ class Controller:
     self.doodle = Doodle ()
     Platforms.create_platforms()
     self.Springs = Springs(50, 70)
-    self.Button = Button()
+    self.Button = Button(50, 300, 100, 100)
     
   # For mainloop
     self.STATE = "MENU"
