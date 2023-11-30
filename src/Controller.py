@@ -8,9 +8,7 @@ menu_options = ("s", "h")
 
 class Controller:
   
-  
   main = True
-  
 
   def __init__(self, x, y):
   #Initialize pygame
@@ -52,7 +50,6 @@ class Controller:
       bquit.draw(self.screen)
       bname = Button(200, 20, 250, 100, 'cadetblue4', 'Bearcat Jump')
       bname.draw(self.screen)
-      
       
       #event loop
       pygame.display.flip()
@@ -102,38 +99,6 @@ class Controller:
             running = False
 
         self.clock.tick(30)
-      #event loop
-      # while running:
-      #   steps = 10
-      #   for event in pygame.event.get():
-      #     if event.type == pygame.QUIT:
-      #       running = False
-      #     elif event.type == pygame.KEYDOWN:
-      #       if event.key == pygame.K_SPACE:
-      #         Doodle.jump()
-      #       #move BC up
-      #       #use set_repeat to make jump higher?
-      #       elif event.key == pygame.K_d:
-      #         Doodle.control(steps, 0)
-      #       #move right
-      #       elif event.key == pygame.K_a:
-      #         Doodle.control(-steps, 0)
-      #       #moveleft
-      #     elif event.type == pygame.KEYUP:
-      #       if event.key == pygame.K_d:
-      #         Doodle.control(-steps, 0)
-      #       if event.key == pygame.K_a:
-      #         Doodle.control(steps, 0)
-          
-      #     self.screen.fill("white")
-      #     pygame.display.flip()
-      #     for event in pygame.event.get():
-      #       if event.type == pygame.QUIT:
-      #         running = False
-          
-      #     self.clock.tick(30)
-          
-        
 
       #update data
 

@@ -30,11 +30,11 @@ We adjusted our project, modeling it after the classic "Doodle Jump" game. Long 
 
 ### Features
 
-1. << Feature 1 >>
-2. << Feature 2 >>
-3. << Feature 3 >>
-4. << Feature 4 >>
-5. << Feature 5 >>
+1. Menu Options
+2. Random Platforms
+3. Doodle Jumping
+4. Doodle moving left and Right
+5. Doodle Flips Direction
 
 ### Classes
 
