@@ -44,8 +44,13 @@ class Controller:
   def menuloop(self):
     while True:
       self.screen.fill('white')
-      b = Button(50, 300, 100, 100, 'red', 'Start Game')
+      b = Button(50, 300, 200, 100, 'red', 'Start Game')
       b.draw(self.screen)
+      
+      b2 = Button(250, 20, 250, 100, 'red', 'Bearcat Jump')
+      b2.draw(self.screen)
+      b3 = Button(100, 500, 200, 100, 'red', 'Quit')
+      b3.draw(self.screen)
       #event loop
       pygame.display.flip()
       #update data
