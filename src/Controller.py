@@ -44,10 +44,11 @@ class Controller:
  
   def menuloop(self):
     running = True
+    while running:
       self.screen.fill('white')
 
-      self.bstart.draw(self.screen)
-      self.bquit.draw(self.screen)
+      #self.bstart.draw(self.screen)
+      #self.bquit.draw(self.screen)
       
       bstart = Button(50, 500, 200, 100, 'chartreuse4', 'Start Game')
       bstart.draw(self.screen)
