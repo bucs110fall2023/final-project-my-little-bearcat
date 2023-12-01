@@ -52,6 +52,14 @@ class Doodle(pygame.sprite.Sprite):
                 self.is_falling = False
                 self.is_jumping = False
                 self.movey = 0
+
+        base_collisions = pygame.sprite.spritecollide(self, [base_platform], False)
+        for base in base_collisions:
+            if self.is_falling:
+                self.rect.y = base.rect.y - self.rect.height
+                self.is_falling = False
+                self.is_jumping = False
+                self.movey = 0
         if self.movex < 0:
             self.image = pygame.transform.flip(self.images [0], True, False)
         if self.movex > 0:
