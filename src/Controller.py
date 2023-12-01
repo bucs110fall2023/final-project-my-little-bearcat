@@ -14,7 +14,7 @@ class Controller:
   #Initialize pygame
     pygame.init()
     self.screen_width = 600
-    self.screen_height = 800
+    self.screen_height = 600
     self.bstart =Button( 50, 500, 200, 100, 'chartreuse4', 'Start Game')
     self.bquit = Button( 350, 500, 200, 100, 'cora14', 'Quit')
     self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
