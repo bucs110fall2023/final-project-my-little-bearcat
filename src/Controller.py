@@ -23,6 +23,10 @@ class Controller:
   #Initialize objects
     self.doodle = Doodle ()
     self.platforms = Platforms.create_platforms()
+    
+    self.all_sprites = pygame.sprite.Group()
+    self.all_sprites.add(self.doodle, self.platforms)
+    
     self.springs = Springs(50, 70)
     self.Button = Button(50, 300, 100, 100)
     
@@ -44,11 +48,8 @@ class Controller:
  
   def menuloop(self):
     running = True
-    while True:
+    while running:
       self.screen.fill('white')
-
-      self.bstart.draw(self.screen)
-      self.bquit.draw(self.screen)
       
       bstart = Button(50, 500, 200, 100, 'chartreuse4', 'Start Game')
       bstart.draw(self.screen)
@@ -59,6 +60,7 @@ class Controller:
       
       #event loop
       pygame.display.flip()
+      
       #update data
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -73,42 +75,43 @@ class Controller:
             running = False
           if self.bstart.is_clicked(mouse_pos):
             self.STATE = "GAME"
+            running = False
       #redraw
       
+      
       self.clock.tick(30)
+    #pygame.quit()
       
   def gameloop(self):
       running = True
+      
       while running:
-        self.screen.fill("white")
-
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K.SPACE]:
-          self.doodle.jump()
-        if keys[pygame.K_d]:
-          self.doodle.control(10,0)
-        if keys[pygame.K_a]:
-          self.doodle.control(-10,0)
+        self.screen.fill("aqua")
         
-        self.doodle.update()
-        self.platforms.update()
-        self.springs.update()
-
-        self.doodle.draw(self.screen)
-        self.platforms.draw(self.screen)
-        self.springs.draw(self.screen)
-
-        pygame.display.flip()
-
         for event in pygame.event.get():
           if event.type == pygame.QUIT:
             running = False
+            self.STATE = "MENU"
+           
+          if event.type == pygame.KEYDOWN:
+            keys = pygame.key.get_pressed()
+            if keys[pygame.K_SPACE]:
+              self.doodle.jump()
+            if keys[pygame.K_d]:
+              self.doodle.control(10,0)
+            if keys[pygame.K_a]:
+              self.doodle.control(-10,0)
+        
+        self.all_sprites.update()
+        self.all_sprites.draw(self.screen)
+        
+        pygame.display.flip()
+
 
         self.clock.tick(30)
 
-      #update data
 
-      #redraw
+        pygame.quit()
     
   def gameoverloop(self):
     pass
@@ -117,10 +120,7 @@ class Controller:
       #update data
 
       #redraw
-#def main():
-  #controller = Controller(20,20)
-  #controller.mainloop()
-  #pass
+
 
 if __name__ == "__main__":
   controller = Controller(20,20)
