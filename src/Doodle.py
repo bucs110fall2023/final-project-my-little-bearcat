@@ -1,6 +1,5 @@
 import os
 import pygame
-import sys
 
 platforms = pygame.sprite.Group()
 
@@ -17,7 +16,11 @@ class Doodle(pygame.sprite.Sprite):
         
         #getting image
         image_path = os.path.join("assets", "bearcatpic.jpg")
-        self.image = pygame.image.load(image_path)
+        original_image = pygame.image.load(image_path)
+
+        scaled_width = 50
+        scaled_height = int(original_image.get_height() * (scaled_width / original_image.get_width()))
+        self.image = pygame.transform.scale(original_image, (scaled_width, scaled_height))
         self.rect = self.image.get_rect()
     
     def gravity(self):
