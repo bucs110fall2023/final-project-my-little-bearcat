@@ -23,9 +23,9 @@ class Controller:
   #Initialize objects
     self.doodle = Doodle ()
     self.platforms = Platforms.create_platforms()
-    
+    self.base_platform = Platforms.create_base_platform(self.screen_width)
     self.all_sprites = pygame.sprite.Group()
-    self.all_sprites.add(self.doodle, self.platforms)
+    self.all_sprites.add(self.doodle, self.platforms, self.base_platform)
     
     self.springs = Springs(50, 70)
     self.Button = Button(50, 300, 100, 100)

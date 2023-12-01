@@ -11,6 +11,11 @@ class Platforms(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
     
+    def create_base_platform(cls, screen_width):
+        base_platform = cls(0, 600, screen_width, 10, "red")
+        return base_platform
+
+
     def create_platforms(num_platforms = 5):
         platforms = pygame.sprite.Group()
         for _ in range (num_platforms):
