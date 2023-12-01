@@ -11,14 +11,24 @@ class Platforms(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
     
-    def create_platforms():
-        x = random.randint(0, 600)
-        y = random.randint(0, 700)
-        width = 60
-        height = 30
+    def create_platforms(num_platforms = 5):
+        platforms = pygame.sprite.Group()
+        for _ in range (num_platforms):
+            x = random.randint(0, 600)
+            y = random.randint(0, 700)
+            width = 60
+            height = 30
+            platform = Platforms(x, y, width, height, "red")
+            platforms.add(platform)
         
-        return Platforms(x, y, width, height, "white")
-    
+        return platforms
+        
+    def update(self):
+        pass
+
+    def draw (self, screen):
+        for platform in self.sprites():
+            screen.blit(platform.image, platform.rect)
 
     
 
