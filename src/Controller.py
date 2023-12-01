@@ -1,5 +1,5 @@
+import sys
 import pygame
-import time
 from src.Doodle import Doodle
 from src.Platforms import Platforms
 from src.Springs import Springs
@@ -45,7 +45,8 @@ class Controller:
       elif self.STATE == "GAMEOVER":
         self.gameoverloop()
     ## below are some sample loop states ###
- 
+
+
   def menuloop(self):
     running = True
     while running:
@@ -111,7 +112,8 @@ class Controller:
         self.clock.tick(30)
 
 
-        pygame.quit()
+      pygame.quit()
+      sys.exit()
     
   def gameoverloop(self):
     pass
