@@ -11,8 +11,9 @@ class Platforms(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
     
-    def create_base_platform(cls, screen_width):
-        base_platform = cls(0, 600, screen_width, 10, "red")
+    
+    def create_base_platform(screen_width):
+        base_platform = Platforms(0, 590, screen_width, 10, "red")
         return base_platform
 
 
@@ -25,6 +26,8 @@ class Platforms(pygame.sprite.Sprite):
             height = 30
             platform = Platforms(x, y, width, height, "red")
             platforms.add(platform)
+            
+
         
         return platforms
         

@@ -29,7 +29,7 @@ class Controller:
     
     self.springs = Springs(50, 70)
     self.Button = Button(50, 300, 100, 100)
-    
+    self.all_sprites.add(self.base_platform)
   # For mainloop
     self.STATE = "MENU"
     self.clock = pygame.time.Clock()
