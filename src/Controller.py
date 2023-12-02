@@ -4,6 +4,7 @@ from src.Doodle import Doodle
 from src.Platforms import Platforms
 from src.Springs import Springs
 from src.Button import Button
+from src.Baseplatform import Baseplatform
 menu_options = ("s", "h")
 
 class Controller:
@@ -21,19 +22,19 @@ class Controller:
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
     
   #Initialize objects
-    self.doodle = Doodle ()
+    self.base_platform = Baseplatform(x=0, y=590, width=600, height = 10, color = "red")
+    self.doodle = Doodle (base_platform = self.base_platform)
     self.platforms = Platforms.create_platforms()
-    self.base_platform = Platforms.create_base_platform(self.screen_width)
+    self.doodle.rect.y = self.base_platform.rect.y - self.doodle.rect.height
     self.all_sprites = pygame.sprite.Group()
     self.all_sprites.add(self.doodle, self.platforms, self.base_platform)
     
     self.springs = Springs(50, 70)
-    self.Button = Button(50, 300, 100, 100)
+    self.button = Button(50, 300, 100, 100)
     self.all_sprites.add(self.base_platform)
   # For mainloop
     self.STATE = "MENU"
     self.clock = pygame.time.Clock()
-
   def mainloop(self):
     #select state loop
     running = True
