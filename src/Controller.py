@@ -75,6 +75,8 @@ class Controller:
           mouse_pos = pygame.mouse.get_pos()
           if self.bquit.is_clicked(mouse_pos):
             running = False
+            pygame.quit()
+            sys.exit()
           if self.bstart.is_clicked(mouse_pos):
             self.STATE = "GAME"
             running = False
