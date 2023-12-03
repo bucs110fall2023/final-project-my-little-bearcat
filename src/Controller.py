@@ -1,4 +1,5 @@
 import sys
+import os
 import pygame
 from src.Doodle import Doodle
 from src.Platforms import Platforms
@@ -35,6 +36,7 @@ class Controller:
   # For mainloop
     self.STATE = "MENU"
     self.clock = pygame.time.Clock()
+    
   def mainloop(self):
     #select state loop
     running = True
@@ -49,9 +51,14 @@ class Controller:
 
 
   def menuloop(self):
+    image = os.path.join("assests", "blogo.jpg")
+    background = pygame.image.load(image)
+    
+    
     running = True
     while running:
       self.screen.fill('white')
+      self.screen.blit(background, (0,0))
       
       bstart = Button(50, 500, 200, 100, 'chartreuse4', 'Start Game')
       bstart.draw(self.screen)
