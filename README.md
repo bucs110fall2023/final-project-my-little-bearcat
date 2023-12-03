@@ -38,7 +38,15 @@ We adjusted our project, modeling it after the classic "Doodle Jump" game. Long 
 
 ### Classes
 
-- << You should have a list of each of your classes with a description >>
+The Doodle Class - Doodle.py: In this class, we are able to create a "bearcat" that acts as our doodle in the game. We also created the methods for gravity, jumping, and and update method including our collision code.
+
+The Button Class - Button.py: In the Button class, we created a method to actually draw the button, and then also a method that allows the user to click said button.
+
+The Springs Class - Springs.py: Hopefully, we will be able to code more in the Springs class in the coming days.
+
+The Platforms Class = Platforms.py: In this class, we created a method to create the platforms, and also wrote code to make the platforms appear randomly in the window.
+
+The Baseplatform Class = Baseplatform.py: Perhaps our most simple class, we initialized the class to create a "grounding" for our Bearcat.
 
 ## ATP
 
