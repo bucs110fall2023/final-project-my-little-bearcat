@@ -102,9 +102,9 @@ class Controller:
             if keys[pygame.K_SPACE]:
               self.doodle.jump()
             if keys[pygame.K_d]:
-              self.doodle.control(10,0)
+              self.doodle.control(1)
             if keys[pygame.K_a]:
-              self.doodle.control(-10,0)
+              self.doodle.control(-1)
         
         self.doodle.update()
         self.all_sprites.update()

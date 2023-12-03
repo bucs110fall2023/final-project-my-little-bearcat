@@ -32,7 +32,7 @@ class Doodle(pygame.sprite.Sprite):
         if self.is_jumping:
             self.movey +=3.0
     
-    def control(self, x, y):
+    def control(self, x):
         self.movex += x
     
     def jump(self):
@@ -42,7 +42,7 @@ class Doodle(pygame.sprite.Sprite):
             self.jump_count = self.jump_height
 
     def update(self):
-    
+        self.rect.x += self.movex
         
         if self.is_jumping:
             if self.jump_count >= -self.jump_height:
@@ -67,7 +67,7 @@ class Doodle(pygame.sprite.Sprite):
                 self.is_falling = False
                 self.is_jumping = False
                 
-        if self.movex < 0:
-            self.image = pygame.transform.flip(self.images [0], True, False)
-        if self.movex > 0:
-            self.image = self.images[0]
+        #if self.movex < 0:
+            #self.image = pygame.transform.flip(self.images [0], True, False)
+        #if self.movex > 0:
+            #self.image = self.images[0]
