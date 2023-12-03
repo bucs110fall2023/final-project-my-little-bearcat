@@ -51,8 +51,9 @@ class Controller:
 
 
   def menuloop(self):
-    image = os.path.join("assests", "blogo.jpg")
-    background = pygame.image.load(image)
+    image = os.path.join('assets', 'blogo.jpg')
+    original = pygame.image.load(image)
+    background = pygame.transform.scale(original, (600, 600))
     
     
     running = True
