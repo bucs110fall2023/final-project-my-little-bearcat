@@ -106,6 +106,7 @@ class Controller:
             if keys[pygame.K_a]:
               self.doodle.control(-10,0)
         
+        self.doodle.update()
         self.all_sprites.update()
         self.all_sprites.draw(self.screen)
         

@@ -26,7 +26,8 @@ class Doodle(pygame.sprite.Sprite):
         self.rect.y = 590 - scaled_height
 
         self.jump_height = 70
-    
+        
+
     def gravity(self):
         if self.is_jumping:
             self.movey +=3.0
@@ -35,11 +36,14 @@ class Doodle(pygame.sprite.Sprite):
         self.movex += x
     
     def jump(self):
+        
         if not self.is_jumping:
             self.is_jumping = True
             self.jump_count = self.jump_height
 
     def update(self):
+    
+        
         if self.is_jumping:
             if self.jump_count >= -self.jump_height:
                 self.rect.y -= (self.jump_count*abs(self.jump_count))*0.5
