@@ -50,14 +50,14 @@ The Baseplatform Class = Baseplatform.py: Perhaps our most simple class, we init
 
 ## ATP
 
-Step, Action, Result
+| Step | Action | Result|
 
-1, Run the main.py code, This should trigger the game window to appear
-2, Click the "Quit" Button, This will cause the game window to close
-3, Click the "Start Game" Button, This will cause the game to commence
-4, Using the keyboard press "A" or "D", This will move the Bearcat to the left and right
-5, Press Spacebar, This will move the Bearcat up smoothly
-6, Land on a platform utilizing steps 4,5, This will cause the Bearcat to "land" on a platform
+|1  | Run the main.py code. | This should trigger the game window to appear. |
+|2  | Click the "Quit" Button | This will cause the game window to close. |
+|3  | Click the "Start Game" Button. | This will cause the game to commence. |
+|4  | Using the keyboard press "A" or "D". | This will move the Bearcat to the left and right. |
+|5  | Press Spacebar. | This will move the Bearcat up smoothly. |
+|6  | Land on a platform utilizing steps 4 and 5 | This will cause the Bearcat to "land" on a platform. |
 
 
 
