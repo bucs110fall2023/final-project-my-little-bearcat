@@ -25,7 +25,7 @@ class Doodle(pygame.sprite.Sprite):
         self.rect.x = 300
         self.rect.y = 590 - scaled_height
 
-        self.jump_height = 70
+        self.jump_height = 100
         
 
     def gravity(self):
