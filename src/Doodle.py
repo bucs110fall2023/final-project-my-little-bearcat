@@ -30,7 +30,7 @@ class Doodle(pygame.sprite.Sprite):
 
     def gravity(self):
         if self.is_jumping:
-            self.movey +=3.0
+            self.movey +=2.5
     
     def control(self, x):
         self.movex += x
@@ -40,6 +40,7 @@ class Doodle(pygame.sprite.Sprite):
         if not self.is_jumping:
             self.is_jumping = True
             self.jump_count = self.jump_height
+            self.movey = -3
 
     def update(self):
         self.rect.x += self.movex
@@ -66,8 +67,3 @@ class Doodle(pygame.sprite.Sprite):
                 self.rect.y = base.rect.y - self.rect.height
                 self.is_falling = False
                 self.is_jumping = False
-                
-        #if self.movex < 0:
-            #self.image = pygame.transform.flip(self.images [0], True, False)
-        #if self.movex > 0:
-            #self.image = self.images[0]

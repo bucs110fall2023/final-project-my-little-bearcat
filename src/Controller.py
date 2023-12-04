@@ -114,11 +114,12 @@ class Controller:
             if keys[pygame.K_a]:
               self.doodle.control(-1)
         
+        self.doodle.gravity()
         self.doodle.update()
         self.all_sprites.update()
         self.all_sprites.draw(self.screen)
-        self.doodle.gravity()
         
+
         pygame.display.flip()
 
 
