@@ -22,9 +22,9 @@ class Platforms(pygame.sprite.Sprite):
         for _ in range (num_platforms):
             x = random.randint(0, 600)
             y = random.randint(0, 500)
-            width = 60
-            height = 30
-            platform = Platforms(x, y, width, height, "red")
+            width = 50
+            height = 20
+            platform = Platforms(x, y, width, height, "dark olive green")
             platforms.add(platform)
             
 
