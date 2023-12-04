@@ -63,14 +63,15 @@ class Doodle(pygame.sprite.Sprite):
                 self.is_jumping = False
                 self.is_falling = True
                 self.movey = 3
-           
+        
         collisions = pygame.sprite.spritecollide(self, platforms, False)
         for platform in collisions:
             if self.is_falling:
-                self.rect.y = platform.rect.y - self.rect.height
+                self.rect.bottom = platform.rect.top
                 self.is_falling = False
                 self.is_jumping = False
                 self.movey = 0
+                
                 
 
         base_collisions = pygame.sprite.spritecollide(self, [self.base_platform], False)

@@ -114,6 +114,7 @@ class Controller:
             if keys[pygame.K_a]:
               self.doodle.control(-1)
         
+        self.platforms.update()
         self.doodle.gravity()
         self.doodle.update()
         self.all_sprites.update()
