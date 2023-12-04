@@ -117,6 +117,7 @@ class Controller:
         self.doodle.update()
         self.all_sprites.update()
         self.all_sprites.draw(self.screen)
+        self.doodle.gravity()
         
         pygame.display.flip()
 
