@@ -23,7 +23,7 @@ class Controller:
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
     
   #Initialize objects
-    self.base_platform = Baseplatform(x=0, y=590, width=600, height = 10, color = "red")
+    self.base_platform = Baseplatform(x=0, y=590, width=600, height = 10, color = "dark olive green")
     self.doodle = Doodle (base_platform = self.base_platform)
     self.platforms = Platforms.create_platforms()
     self.doodle.rect.y = self.base_platform.rect.y - self.doodle.rect.height
