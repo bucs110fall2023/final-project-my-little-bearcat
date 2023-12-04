@@ -35,5 +35,6 @@ class Platforms(pygame.sprite.Sprite):
         pass
 
     def draw (self, screen):
-        for platform in self.sprites():
-            screen.blit(platform.image, platform.rect)
+        self.draw(screen)
+        #for platform in self.sprites():
+            #screen.blit(platform.image, platform.rect)

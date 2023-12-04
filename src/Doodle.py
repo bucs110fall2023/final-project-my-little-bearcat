@@ -12,8 +12,8 @@ class Doodle(pygame.sprite.Sprite):
         self.is_jumping = False
         self.is_falling = True
         self.images = []
-        self.velocity = 0
         self.base_platform = base_platform
+        
         #getting image
         image_path = os.path.join("assets", "bearcatpic.jpg")
         original_image = pygame.image.load(image_path)
@@ -24,19 +24,25 @@ class Doodle(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 300
         self.rect.y = 590 - scaled_height
-
-        self.jump_height = 100
+        
+        #Movement
+        self.jump_height = 20
         
 
     def gravity(self):
-        if self.is_jumping:
-            self.movey +=2.5
+        if not self.is_jumping and not self.is_falling:
+            print("Falling")
+            self.movey += 2.5
+        elif self.rect.y < 10:
+            print("Falling because y < ground")
+            self.movey += 2.5
+        else:
+            self.is_falling = True
     
     def control(self, x):
-        self.movex += x
+        self.movex = x
     
     def jump(self):
-        
         if not self.is_jumping:
             self.is_jumping = True
             self.jump_count = self.jump_height
@@ -44,14 +50,19 @@ class Doodle(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.x += self.movex
+        self.rect.y += self.movey
+        self.gravity()
+        
+        print(f"y: {self.rect.y}, is_jumping: {self.is_jumping}, is_falling: {self.is_falling}")
         
         if self.is_jumping:
             if self.jump_count >= -self.jump_height:
-                self.rect.y -= 10
+                self.movey = -3
                 self.jump_count -= 1
             else:
                 self.is_jumping = False
                 self.is_falling = True
+                self.movey = 3
            
         collisions = pygame.sprite.spritecollide(self, platforms, False)
         for platform in collisions:
@@ -59,6 +70,7 @@ class Doodle(pygame.sprite.Sprite):
                 self.rect.y = platform.rect.y - self.rect.height
                 self.is_falling = False
                 self.is_jumping = False
+                self.movey = 0
                 
 
         base_collisions = pygame.sprite.spritecollide(self, [self.base_platform], False)
@@ -67,3 +79,18 @@ class Doodle(pygame.sprite.Sprite):
                 self.rect.y = base.rect.y - self.rect.height
                 self.is_falling = False
                 self.is_jumping = False
+                self.movey = 0
+                self.is_falling = True
+        
+        if self.movex != 0:
+            self.movex = .99 * self.movex
+        
+        #Boundaries        
+        if self.rect.y < 0:
+            self.rect.y = 0
+            self.is_jumping = False
+            self.is_falling = True
+        if self.rect.x < 0:
+            self.rect.x = 0
+        elif self.rect.x > 600 - self.rect.width:
+            self.rect.x = 600 - self.rect.width
