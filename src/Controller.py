@@ -24,8 +24,8 @@ class Controller:
     
   #Initialize objects
     self.base_platform = Baseplatform(x=0, y=590, width=600, height = 10, color = "dark olive green")
-    self.doodle = Doodle (base_platform = self.base_platform)
     self.platforms = Platforms.create_platforms()
+    self.doodle = Doodle (base_platform = self.base_platform, platforms = self.platforms)
     self.doodle.rect.y = self.base_platform.rect.y - self.doodle.rect.height
     self.all_sprites = pygame.sprite.Group()
     self.all_sprites.add(self.doodle, self.platforms, self.base_platform)
