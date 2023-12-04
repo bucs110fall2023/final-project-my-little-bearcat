@@ -17,7 +17,7 @@ class Platforms(pygame.sprite.Sprite):
         return base_platform
 
 
-    def create_platforms(num_platforms = 10):
+    def create_platforms(num_platforms = 5):
         platforms = pygame.sprite.Group()
         for _ in range (num_platforms):
             x = random.randint(0, 600)
