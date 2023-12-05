@@ -58,7 +58,7 @@ The Baseplatform Class = Baseplatform.py: Perhaps our most simple class, we init
 
 |3  | Click the "Start Game" Button. | This will cause the game to commence. |
 
-|4  | Using the keyboard press "A" or "D". | This will move the Bearcat to the left and right. |
+|4  | Using the keyboard press "A" or "D". | This will move the Bearcat to the left or right, respectively. |
 
 |5  | Press Spacebar. | This will move the Bearcat up smoothly. |
 
