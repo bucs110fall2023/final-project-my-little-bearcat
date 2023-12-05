@@ -31,10 +31,8 @@ class Doodle(pygame.sprite.Sprite):
 
     def gravity(self):
         if self.is_jumping and not self.is_falling:
-            print("Falling")
             self.movey += 2.5
         elif self.rect.y < 10:
-            print("Falling because y < ground")
             self.movey += 2.5
         else:
             self.is_falling = True
@@ -52,8 +50,6 @@ class Doodle(pygame.sprite.Sprite):
         self.rect.x += self.movex
         self.rect.y += self.movey
         self.gravity()
-        
-        print(f"y: {self.rect.y}, is_jumping: {self.is_jumping}, is_falling: {self.is_falling}")
         
         if self.is_jumping:
             if self.jump_count >= -self.jump_height:

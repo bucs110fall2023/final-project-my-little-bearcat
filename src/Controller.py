@@ -113,6 +113,9 @@ class Controller:
               self.doodle.control(1)
             if keys[pygame.K_a]:
               self.doodle.control(-1)
+        if self.doodle.rect.y == 0:
+          self.STATE = "GAMEOVER"
+          running = False
         
         self.platforms.update()
         self.doodle.gravity()
@@ -131,8 +134,28 @@ class Controller:
       sys.exit()
     
   def gameoverloop(self):
-    pass
-      #event loop
+    running = True
+    while running:
+      self.screen.fill("black")
+      bmenu = Button (50, 500, 200, 100, 'aquamarine4', 'Menu')
+      bmenu.draw(self.screen)
+      brestart = Button (350, 500, 200, 100, 'chartreuse', 'Restart')
+      brestart.draw(self.screen)
+      
+      pygame.display.flip()
+      
+      for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+          running = False
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+          mouse_pos = pygame.mouse.get_pos()
+          if self.bmenu.is_clicked(mouse_pos):
+            self.STATE = "MENU"
+            running = False
+          if self.brestart.is_clicked(mouse_pos):
+            self.STATE = "GAME"
+            running = False
+      self.clock.tick(30)
 
       #update data
 
