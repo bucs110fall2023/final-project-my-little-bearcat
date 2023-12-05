@@ -75,6 +75,7 @@ class Controller:
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           running = False
+          pygame.quit()
         elif event.type == pygame.KEYDOWN:
           if event.key == pygame.K_RETURN:
             self.STATE = "GAME"
@@ -99,10 +100,10 @@ class Controller:
         
         for event in pygame.event.get():
           if event.type == pygame.QUIT:
-            running = False
             self.STATE = "MENU"
+            running = False
            
-          if event.type == pygame.KEYDOWN:
+          elif event.type == pygame.KEYDOWN:
             keys = pygame.key.get_pressed()
             if keys[pygame.K_SPACE]:
               self.doodle.jump()
