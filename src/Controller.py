@@ -6,7 +6,6 @@ from src.Platforms import Platforms
 from src.Springs import Springs
 from src.Button import Button
 from src.Baseplatform import Baseplatform
-menu_options = ("s", "h")
 
 class Controller:
   
@@ -17,8 +16,13 @@ class Controller:
     pygame.init()
     self.screen_width = 600
     self.screen_height = 600
-    self.bstart =Button( 50, 500, 200, 100, 'chartreuse4', 'Start Game')
+    
+    #BUTTONS
+    self.bstart = Button( 50, 500, 200, 100, 'chartreuse4', 'Start Game')
     self.bquit = Button( 350, 500, 200, 100, 'cora14', 'Quit')
+    self.bmenu = Button (50, 500, 200, 100, 'aquamarine4', 'Menu')
+    self.brestart = Button (350, 500, 200, 100, 'chartreuse', 'Restart')
+    
     self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
     pygame.display.set_caption("Allison and David's final project: Bearcat Jump")
     
@@ -47,14 +51,11 @@ class Controller:
         self.gameloop()
       elif self.STATE == "GAMEOVER":
         self.gameoverloop()
-    ## below are some sample loop states ###
-
 
   def menuloop(self):
     image = os.path.join('assets', 'blogo.jpg')
     original = pygame.image.load(image)
     background = pygame.transform.scale(original, (600, 600))
-    
     
     running = True
     while running:
@@ -68,7 +69,6 @@ class Controller:
       bname = Button(200, 20, 250, 100, 'cadetblue4', 'Bearcat Jump')
       bname.draw(self.screen)
       
-      #event loop
       pygame.display.flip()
       
       #update data
@@ -88,11 +88,8 @@ class Controller:
           if self.bstart.is_clicked(mouse_pos):
             self.STATE = "GAME"
             running = False
-      #redraw
-      
       
       self.clock.tick(30)
-    #pygame.quit()
       
   def gameloop(self):
       running = True
@@ -123,12 +120,9 @@ class Controller:
         self.all_sprites.update()
         self.all_sprites.draw(self.screen)
         
-
         pygame.display.flip()
 
-
         self.clock.tick(30)
-
 
       pygame.quit()
       sys.exit()
@@ -160,8 +154,3 @@ class Controller:
       #update data
 
       #redraw
-
-
-if __name__ == "__main__":
-  controller = Controller(20,20)
-  controller.mainloop()
