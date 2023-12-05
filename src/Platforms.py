@@ -11,11 +11,9 @@ class Platforms(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
     
-    
     def create_base_platform(screen_width):
         base_platform = Platforms(0, 590, screen_width, 10, "red")
         return base_platform
-
 
     def create_platforms(num_platforms = 5):
         platforms = pygame.sprite.Group()
@@ -26,13 +24,11 @@ class Platforms(pygame.sprite.Sprite):
             height = 20
             platform = Platforms(x, y, width, height, "dark olive green")
             platforms.add(platform)
-            
-
         
         return platforms
         
-    def update(self):
-        pass
+    #def update(self):
+        #pass
 
     def draw (self, screen):
         self.draw(screen)

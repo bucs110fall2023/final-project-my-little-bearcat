@@ -14,6 +14,7 @@ class Doodle(pygame.sprite.Sprite):
         self.images = []
         self.base_platform = base_platform
         self.platforms = platforms
+        
         #getting image
         image_path = os.path.join("assets", "bearcatpic.jpg")
         original_image = pygame.image.load(image_path)
@@ -60,6 +61,7 @@ class Doodle(pygame.sprite.Sprite):
                 self.is_falling = True
                 self.movey = 3
         
+        #Collisions
         collisions = pygame.sprite.spritecollide(self, self.platforms, False)
         for platform in collisions:
             if self.is_falling:
@@ -68,8 +70,6 @@ class Doodle(pygame.sprite.Sprite):
                 self.is_jumping = False
                 self.movey = 0
                 
-                
-
         base_collisions = pygame.sprite.spritecollide(self, [self.base_platform], False)
         for base in base_collisions:
             if self.is_falling:
@@ -79,6 +79,7 @@ class Doodle(pygame.sprite.Sprite):
                 self.movey = 0
                 self.is_falling = True
         
+        #Stops sliding movement
         if self.movex != 0:
             self.movex = .99 * self.movex
         

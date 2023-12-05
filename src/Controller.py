@@ -114,7 +114,7 @@ class Controller:
           self.STATE = "GAMEOVER"
           running = False
         
-        self.platforms.update()
+        #self.platforms.update()
         self.doodle.gravity()
         self.doodle.update()
         self.all_sprites.update()
