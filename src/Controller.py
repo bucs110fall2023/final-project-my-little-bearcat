@@ -36,7 +36,7 @@ class Controller:
     self.doodle.rect.y = self.base_platform.rect.y - self.doodle.rect.height
     self.all_sprites = pygame.sprite.Group()
     self.all_sprites.add(self.doodle, self.platforms, self.base_platform)
-    
+    self.timer = 0
     self.button = Button(50, 300, 100, 100)
     self.all_sprites.add(self.base_platform)
   # For mainloop
@@ -98,6 +98,7 @@ class Controller:
       running = True
       
       while running:
+        self.timer += self.clock.tick(30)/1000.0
         self.screen.fill("aqua")
         
         for event in pygame.event.get():
@@ -121,6 +122,10 @@ class Controller:
         self.all_sprites.draw(self.screen)
         
         self.platforms.draw(self.screen)
+        font = pygame.font.Font(None, 36)
+        text = font.render(f'Time: {int(self.timer)} seconds', True, "black")
+        self.screen.blit(text, (10, 10))
+
         pygame.display.flip()
 
         if self.doodle.rect.y == 0:
