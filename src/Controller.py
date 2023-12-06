@@ -6,6 +6,8 @@ from src.Platforms import Platforms
 from src.Springs import Springs
 from src.Button import Button
 from src.Baseplatform import Baseplatform
+from src.Timer import Timer
+
 
 class Controller:
   
@@ -34,7 +36,7 @@ class Controller:
     self.all_sprites = pygame.sprite.Group()
     self.all_sprites.add(self.doodle, self.platforms, self.base_platform)
     
-    self.springs = Springs(50, 70)
+    self.timer = Timer()
     self.button = Button(50, 300, 100, 100)
     self.all_sprites.add(self.base_platform)
   # For mainloop
@@ -94,7 +96,7 @@ class Controller:
       
   def gameloop(self):
       running = True
-      
+      self.timer.start_timer()
       while running:
         self.screen.fill("aqua")
         
@@ -111,10 +113,7 @@ class Controller:
               self.doodle.control(1)
             if keys[pygame.K_a]:
               self.doodle.control(-1)
-        if self.doodle.rect.y == 0:
-          self.STATE = "GAMEOVER"
-          running = False
-        
+
         self.platforms.update()
         self.doodle.gravity()
         self.doodle.update()
@@ -124,6 +123,12 @@ class Controller:
         self.platforms.draw(self.screen)
         pygame.display.flip()
 
+        if self.doodle.rect.y == 0:
+          self.STATE = "GAMEOVER"
+          running = False
+        
+        
+
         self.clock.tick(30)
 
       pygame.quit()
@@ -132,6 +137,11 @@ class Controller:
   def gameoverloop(self):
     
     running = True
+    self.timer.stop_timer()
+    elapsed_time = self.timer.get_elapsed_time()
+    print(f"Time: {elapsed_time:.2f} seconds")
+    # highest_score = self.timer.get_highest_score()
+    # print(f"Highest Score: {highest_score} seconds")
     while running:
       self.screen.fill("black")
       bmenu = Button (50, 500, 200, 100, 'aquamarine4', 'Menu')
