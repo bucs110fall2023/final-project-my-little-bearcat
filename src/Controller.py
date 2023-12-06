@@ -7,6 +7,7 @@ from src.Platforms import Platforms
 from src.Springs import Springs
 from src.Button import Button
 from src.Baseplatform import Baseplatform
+from src.BestTime import BestTime
 
 
 
@@ -37,6 +38,7 @@ class Controller:
     self.all_sprites = pygame.sprite.Group()
     self.all_sprites.add(self.doodle, self.platforms, self.base_platform)
     self.timer = 0
+    self.best_time_manager = BestTime()
     self.button = Button(50, 300, 100, 100)
     self.all_sprites.add(self.base_platform)
   # For mainloop
@@ -97,10 +99,10 @@ class Controller:
   def gameloop(self):
       running = True
       
+      
       while running:
         self.timer += self.clock.tick(30)/1000.0
         self.screen.fill("aqua")
-        
         for event in pygame.event.get():
           if event.type == pygame.QUIT:
             self.STATE = "MENU"
@@ -124,21 +126,24 @@ class Controller:
         self.platforms.draw(self.screen)
         font = pygame.font.Font(None, 36)
         text = font.render(f'Time: {int(self.timer)} seconds', True, "black")
+        best_time_text = font.render(f'Best Time: {int(self.best_time_manager.best_time)} seconds', True, "black")
         self.screen.blit(text, (10, 10))
+        self.screen.blit(best_time_text, (10, 50))
 
         pygame.display.flip()
 
         if self.doodle.rect.y == 0:
+          self.best_time_manager.save_best_time()
           self.STATE = "GAMEOVER"
           running = False
         
         
 
-        self.clock.tick(30)
+      self.clock.tick(30)
 
       pygame.quit()
       sys.exit()
-    
+
   def gameoverloop(self):
     
     running = True
