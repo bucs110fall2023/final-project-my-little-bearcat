@@ -15,7 +15,7 @@ class Platforms(pygame.sprite.Sprite):
         base_platform = Platforms(0, 590, screen_width, 10, "red")
         return base_platform
 
-    def create_platforms(num_platforms = 5):
+    def create_platforms(num_platforms = 15):
         platforms = pygame.sprite.Group()
         for _ in range (num_platforms):
             x = random.randint(0, 600)
@@ -23,6 +23,9 @@ class Platforms(pygame.sprite.Sprite):
             width = 50
             height = 20
             platform = Platforms(x, y, width, height, "dark olive green")
+            while pygame.sprite.spritecollide(platform, platforms, False):
+                platform.rect.x = random.randint(0,600)
+                platform.rect.y = random.randint(0, 500)
             platforms.add(platform)
         
         return platforms
