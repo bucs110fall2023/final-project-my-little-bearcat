@@ -141,8 +141,7 @@ class Controller:
 
       self.clock.tick(30)
 
-      pygame.quit()
-      sys.exit()
+      
 
   def gameoverloop(self):
     
@@ -166,10 +165,31 @@ class Controller:
             self.STATE = "MENU"
             running = False
           if self.brestart.is_clicked(mouse_pos):
+            self.reset_game()
             self.STATE = "GAME"
             running = False
       self.clock.tick(30)
 
+  def reset_game(self):
+    
+    self.timer = 0
+    self.best_time_manager.save_best_time()
+    self.best_time_manager.load_best_time()
+    self.base_platform = Baseplatform(x=0, y = 590, width = 600, height = 10, color = "dark olive green")
+    self.platforms = Platforms.create_platforms()
+    self.doodle = Doodle(base_platform = self.base_platform, platforms = self.platforms)
+    self.doodle.rect.y = self.base_platform.rect.y - self.doodle.rect.height
+    self.all_sprites = pygame.sprite.Group()
+    self.all_sprites.add(self.doodle, self.platforms, self.base_platform)
+    self.STATE = "GAME"
+
+    self.screen.fill("aquamarine4")
+    font = pygame.font.Font(None, 36)
+    best_time_text = font.render(f'Best Time: {int(self.best_time_manager.best_time)} seconds', True, "black")
+    self.screen.blit(best_time_text, (10, 50))
+    pygame.display.flip()
+    
+    self.gameloop()
       #update data
 
       #redraw
