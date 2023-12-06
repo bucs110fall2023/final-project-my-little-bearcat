@@ -1,12 +1,13 @@
 import sys
 import os
 import pygame
+
 from src.Doodle import Doodle
 from src.Platforms import Platforms
 from src.Springs import Springs
 from src.Button import Button
 from src.Baseplatform import Baseplatform
-from src.Timer import Timer
+
 
 
 class Controller:
@@ -36,7 +37,6 @@ class Controller:
     self.all_sprites = pygame.sprite.Group()
     self.all_sprites.add(self.doodle, self.platforms, self.base_platform)
     
-    self.timer = Timer()
     self.button = Button(50, 300, 100, 100)
     self.all_sprites.add(self.base_platform)
   # For mainloop
@@ -96,7 +96,7 @@ class Controller:
       
   def gameloop(self):
       running = True
-      self.timer.start_timer()
+      
       while running:
         self.screen.fill("aqua")
         
@@ -137,11 +137,7 @@ class Controller:
   def gameoverloop(self):
     
     running = True
-    self.timer.stop_timer()
-    elapsed_time = self.timer.get_elapsed_time()
-    print(f"Time: {elapsed_time:.2f} seconds")
-    # highest_score = self.timer.get_highest_score()
-    # print(f"Highest Score: {highest_score} seconds")
+    
     while running:
       self.screen.fill("black")
       bmenu = Button (50, 500, 200, 100, 'aquamarine4', 'Menu')
