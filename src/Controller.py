@@ -130,6 +130,7 @@ class Controller:
       sys.exit()
     
   def gameoverloop(self):
+    
     running = True
     while running:
       self.screen.fill("black")
