@@ -115,12 +115,13 @@ class Controller:
           self.STATE = "GAMEOVER"
           running = False
         
-        #self.platforms.update()
+        self.platforms.update()
         self.doodle.gravity()
         self.doodle.update()
         self.all_sprites.update()
         self.all_sprites.draw(self.screen)
         
+        self.platforms.draw(self.screen)
         pygame.display.flip()
 
         self.clock.tick(30)
