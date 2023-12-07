@@ -111,6 +111,7 @@ class Controller:
     """
     A loop for controling the game state
     """
+    
     running = True
       
     while running:
@@ -155,6 +156,7 @@ class Controller:
     """
     A loop that controls the game over state
     """
+    self.reset_game()
     running = True
     
     while running:
@@ -202,14 +204,7 @@ class Controller:
     self.doodle.rect.y = self.base_platform.rect.y - self.doodle.rect.height
     self.all_sprites = pygame.sprite.Group()
     self.all_sprites.add(self.doodle, self.platforms, self.base_platform)
-    self.STATE = "GAME"
-
-    self.screen.fill("aquamarine4")
-    font = pygame.font.Font(None, 36)
-    best_time_text = font.render(f'Best Time: {self.best_time_manager.best_time:.2f} seconds', True, "black")
-    self.screen.blit(best_time_text, (10, 50))
     pygame.display.flip()
-    
     
     self.gameloop()
 
