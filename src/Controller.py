@@ -182,9 +182,7 @@ class Controller:
             self.STATE = "GAME"
             running = False
       text = self.font.render(f'Time: {int(self.timer)} seconds', True, "white")
-      best_time_text = self.font.render(f'Best Time: {int(self.best_time_manager.best_time)} seconds', True, "white")
       self.screen.blit(text, (10, 10))
-      self.screen.blit(best_time_text, (10, 50))
 
       self.clock.tick(30)
       pygame.display.flip()
