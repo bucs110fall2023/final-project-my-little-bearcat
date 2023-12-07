@@ -4,11 +4,10 @@ import pygame
 
 from src.Doodle import Doodle
 from src.Platforms import Platforms
-from src.Springs import Springs
+#from src.Springs import Springs
 from src.Button import Button
 from src.Baseplatform import Baseplatform
 from src.BestTime import BestTime
-
 
 
 class Controller:
@@ -16,6 +15,12 @@ class Controller:
   main = True
 
   def __init__(self, x, y):
+    """
+    Creates a new controller object
+    
+    Args: int - x: How wide the window will be
+          int - y: How tall the window will be
+    """
   #Initialize pygame
     pygame.init()
     self.screen_width = 600
@@ -41,12 +46,16 @@ class Controller:
     self.best_time_manager = BestTime()
     self.button = Button(50, 300, 100, 100)
     self.all_sprites.add(self.base_platform)
+    
   # For mainloop
     self.STATE = "MENU"
     self.clock = pygame.time.Clock()
     
   def mainloop(self):
-    #select state loop
+    """
+    Manages the different game states
+    """
+    #selecting a state loop
     running = True
     while running:
       if self.STATE == "MENU":
@@ -57,6 +66,9 @@ class Controller:
         self.gameoverloop()
 
   def menuloop(self):
+    """
+    A loop that controls the menu state
+    """
     image = os.path.join('assets', 'blogo.jpg')
     original = pygame.image.load(image)
     background = pygame.transform.scale(original, (600, 600))
@@ -97,54 +109,53 @@ class Controller:
       self.clock.tick(30)
       
   def gameloop(self):
-      running = True
+    """
+    A loop for controling the game state
+    """
+    running = True
       
-      
-      while running:
-        self.timer += self.clock.tick(30)/1000.0
-        self.screen.fill("aqua")
-        for event in pygame.event.get():
-          if event.type == pygame.QUIT:
-            self.STATE = "MENU"
-            running = False
+    while running:
+      self.timer += self.clock.tick(30)/1000.0
+      self.screen.fill("aqua")
+      for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+          self.STATE = "MENU"
+          running = False
            
-          elif event.type == pygame.KEYDOWN:
-            keys = pygame.key.get_pressed()
-            if keys[pygame.K_SPACE]:
-              self.doodle.jump()
-            if keys[pygame.K_d]:
-              self.doodle.control(1)
-            if keys[pygame.K_a]:
+        elif event.type == pygame.KEYDOWN:
+          keys = pygame.key.get_pressed()
+          if keys[pygame.K_SPACE]:
+            self.doodle.jump()
+          if keys[pygame.K_d]:
+            self.doodle.control(1)
+          if keys[pygame.K_a]:
               self.doodle.control(-1)
 
-        self.platforms.update()
-        self.doodle.gravity()
-        self.doodle.update()
-        self.all_sprites.update()
-        self.all_sprites.draw(self.screen)
+      self.platforms.update()
+      self.doodle.gravity()
+      self.doodle.update()
+      self.all_sprites.update()
+      self.all_sprites.draw(self.screen)
         
-        self.platforms.draw(self.screen)
-        font = pygame.font.Font(None, 36)
-        text = font.render(f'Time: {int(self.timer)} seconds', True, "black")
-        best_time_text = font.render(f'Best Time: {int(self.best_time_manager.best_time)} seconds', True, "black")
-        self.screen.blit(text, (10, 10))
-        self.screen.blit(best_time_text, (10, 50))
+      self.platforms.draw(self.screen)
+      font = pygame.font.Font(None, 36)
+      text = font.render(f'Time: {int(self.timer)} seconds', True, "black")
+      best_time_text = font.render(f'Best Time: {int(self.best_time_manager.best_time)} seconds', True, "black")
+      self.screen.blit(text, (10, 10))
+      self.screen.blit(best_time_text, (10, 50))
 
-        pygame.display.flip()
+      pygame.display.flip()
 
-        if self.doodle.rect.y == 0:
-          self.best_time_manager.save_best_time()
-          self.STATE = "GAMEOVER"
-          running = False
-        
-        
-
-      self.clock.tick(30)
-
-      
+      if self.doodle.rect.y == 0:
+        self.best_time_manager.save_best_time()
+        self.STATE = "GAMEOVER"
+        running = False
+    self.clock.tick(30)
 
   def gameoverloop(self):
-    
+    """
+    A loop that controls the game over state
+    """
     running = True
     
     while running:
@@ -171,7 +182,9 @@ class Controller:
       self.clock.tick(30)
 
   def reset_game(self):
-    
+    """
+    Resets the game to get ready for a new one
+    """
     self.timer = 0
     self.best_time_manager.save_best_time()
     self.best_time_manager.load_best_time()
@@ -190,6 +203,3 @@ class Controller:
     pygame.display.flip()
     
     self.gameloop()
-      #update data
-
-      #redraw

@@ -5,6 +5,12 @@ platforms = pygame.sprite.Group()
 
 class Doodle(pygame.sprite.Sprite):
     def __init__(self, base_platform, platforms):
+        """
+        Sets up and defines our doodle class
+        
+        Args: Sprite - base_platform: The ground where the Doodle class will stand
+              Sprite - platforms: Where doodle can jump to
+        """
         super().__init__()
         self.movex = 0
         self.movey = 0
@@ -31,6 +37,9 @@ class Doodle(pygame.sprite.Sprite):
         
 
     def gravity(self):
+        """
+        Determines a gravity effect for the Doodle character, making it fall
+        """
         if self.is_jumping and not self.is_falling:
             self.movey += 2.5
         elif self.rect.y < 10:
@@ -39,15 +48,26 @@ class Doodle(pygame.sprite.Sprite):
             self.is_falling = True
     
     def control(self, x):
+        """
+        Sets how much Doodle can move right or left
+        
+        Args: float - x: horizontal movement
+        """
         self.movex = x
     
     def jump(self):
+        """
+        Gives doodle a way to jump by setting how he moves up on the y-axis
+        """
         if not self.is_jumping:
             self.is_jumping = True
             self.jump_count = self.jump_height
             self.movey = -3
 
     def update(self):
+        """
+        Updates Doodle's postion(x and y), collisons, and sets boundaries on the screen 
+        """
         self.rect.x += self.movex
         self.rect.y += self.movey
         self.gravity()
