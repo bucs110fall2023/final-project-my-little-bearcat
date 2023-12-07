@@ -24,7 +24,9 @@ We adjusted our project, modeling it after the classic "Doodle Jump" game. Long 
 
 ### Final Design
 
-![final gui](assets/finalgui.jpg)
+![final gui](assets/finalgui1.jpg)
+![final gui](assets/finalgui2.jpg)
+![final gui](assets/finalgui3.jpg)
 
 ## Program Design
 
