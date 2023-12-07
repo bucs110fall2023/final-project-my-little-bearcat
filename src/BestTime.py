@@ -21,7 +21,7 @@ class BestTime:
             self.best_time = str(current_time)
             self.save_best_time()
             
-    def save_best_time(self, current_time):
+    def save_best_time(self):
         """
         Saves the best time score to the file 'best_time.txt'
         """
@@ -29,8 +29,8 @@ class BestTime:
         if current_time < float(self.best_time):
             self.best_time = str(current_time)
         
-            with open("best_time.txt", "w") as file:
-                file.write(str(self.best_time))
+        with open("best_time.txt", "w") as file:
+            file.write(str(self.best_time))
     
     def load_best_time(self):
         """
