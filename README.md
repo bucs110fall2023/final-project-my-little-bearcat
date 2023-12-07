@@ -72,6 +72,3 @@ The Springs Class - Springs.py: Hopefully, we will be able to code more in the S
 |8  | Press "Reset" | This will restart the game while also displaying the lowest time it took to reach the top |
 
 |9  | Press "Quit" | This will close the window |
-
-
-
