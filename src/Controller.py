@@ -147,7 +147,7 @@ class Controller:
       pygame.display.flip()
 
       if self.doodle.rect.y == 0:
-        self.best_time_manager.save_best_time()
+        self.best_time_manager.update_best_time(self.timer)
         self.STATE = "GAMEOVER"
         running = False
     self.clock.tick(30)
@@ -202,6 +202,7 @@ class Controller:
     self.doodle.rect.y = self.base_platform.rect.y - self.doodle.rect.height
     self.all_sprites = pygame.sprite.Group()
     self.all_sprites.add(self.doodle, self.platforms, self.base_platform)
+    
     pygame.display.flip()
     
     self.gameloop()
