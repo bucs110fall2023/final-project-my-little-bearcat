@@ -165,7 +165,7 @@ class Controller:
       brestart = Button (350, 500, 200, 100, 'darkorange3', 'Restart')
       brestart.draw(self.screen)
       
-      pygame.display.flip()
+      
       
       for event in pygame.event.get():
         if event.type == pygame.QUIT:

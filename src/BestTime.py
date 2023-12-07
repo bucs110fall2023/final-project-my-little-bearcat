@@ -25,8 +25,6 @@ class BestTime:
         """
         Saves the best time score to the file 'best_time.txt'
         """
-        if time < float(self.best_time):
-            self.best_time = str(time)
         with open("best_time.txt", "w") as file:
             file.write(str(self.best_time))
     
