@@ -7,7 +7,7 @@ class BestTime:
         Creates a new Best Time object that keeps track of the players best time
         """
         self.best_time = "∞"
-        self.best_time ='inf'
+        self.best_time = float('inf')
         self.load_best_time()
 
 
@@ -17,7 +17,7 @@ class BestTime:
         
         Args: float - current_time: The players current time in game
         """
-        if current_time < self.best_time:
+        if current_time < self.best_time or self.best_time == float('inf'):
             self.best_time = str(current_time)
             self.save_best_time()
             
@@ -25,6 +25,10 @@ class BestTime:
         """
         Saves the best time score to the file 'best_time.txt'
         """
+        current_time = time.time()
+        if current_time < float(self.best_time):
+            self.best_time = str(current_time)
+        
         with open("best_time.txt", "w") as file:
             file.write(str(self.best_time))
     
@@ -42,4 +46,10 @@ class BestTime:
 
     def print_best_time(self):
         print(f'Best Time: {self.best_time} seconds')
+
+    def format_best_time(self):
+        if self.best_time == float('inf'):
+            return "Infinity"
+        else:
+            return f"{self.best_time: .2f} seconds"
         

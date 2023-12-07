@@ -185,7 +185,7 @@ class Controller:
       self.screen.blit(best_time_text, (10, 50))
 
       self.clock.tick(30)
-    pygame.display.flip()
+      pygame.display.flip()
 
   def reset_game(self):
     """
