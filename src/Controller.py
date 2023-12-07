@@ -4,7 +4,6 @@ import pygame
 
 from src.Doodle import Doodle
 from src.Platforms import Platforms
-#from src.Springs import Springs
 from src.Button import Button
 from src.Baseplatform import Baseplatform
 from src.BestTime import BestTime
