@@ -9,7 +9,6 @@ from src.Button import Button
 from src.Baseplatform import Baseplatform
 from src.BestTime import BestTime
 
-
 class Controller:
   
   main = True
@@ -25,6 +24,7 @@ class Controller:
     pygame.init()
     self.screen_width = 600
     self.screen_height = 600
+    self.font = pygame.font.Font(None, 36)
     
     #BUTTONS
     self.bstart = Button( 50, 500, 200, 100, 'chartreuse4', 'Start Game')
@@ -75,7 +75,6 @@ class Controller:
     
     running = True
     while running:
-      self.screen.fill('white')
       self.screen.blit(background, (0,0))
       
       bstart = Button(50, 500, 200, 100, 'chartreuse4', 'Start Game')
@@ -138,9 +137,9 @@ class Controller:
       self.all_sprites.draw(self.screen)
         
       self.platforms.draw(self.screen)
-      font = pygame.font.Font(None, 36)
-      text = font.render(f'Time: {int(self.timer)} seconds', True, "black")
-      best_time_text = font.render(f'Best Time: {int(self.best_time_manager.best_time)} seconds', True, "black")
+      #font = pygame.font.Font(None, 36)
+      text = self.font.render(f'Time: {int(self.timer)} seconds', True, "black")
+      best_time_text = self.font.render(f'Best Time: {int(self.best_time_manager.best_time)} seconds', True, "black")
       self.screen.blit(text, (10, 10))
       self.screen.blit(best_time_text, (10, 50))
 
@@ -159,10 +158,11 @@ class Controller:
     running = True
     
     while running:
-      self.screen.fill("black")
-      bmenu = Button (50, 500, 200, 100, 'aquamarine4', 'Menu')
+      #Screen set up
+      self.screen.fill("blanchedalmond")
+      bmenu = Button (50, 500, 200, 100, 'darkolivegreen3', 'Menu')
       bmenu.draw(self.screen)
-      brestart = Button (350, 500, 200, 100, 'chartreuse', 'Restart')
+      brestart = Button (350, 500, 200, 100, 'darkorange3', 'Restart')
       brestart.draw(self.screen)
       
       pygame.display.flip()
@@ -179,6 +179,11 @@ class Controller:
             self.reset_game()
             self.STATE = "GAME"
             running = False
+      text = self.font.render(f'Time: {int(self.timer)} seconds', True, "white")
+      best_time_text = self.font.render(f'Best Time: {int(self.best_time_manager.best_time)} seconds', True, "white")
+      self.screen.blit(text, (10, 10))
+      self.screen.blit(best_time_text, (10, 50))
+
       self.clock.tick(30)
 
   def reset_game(self):
