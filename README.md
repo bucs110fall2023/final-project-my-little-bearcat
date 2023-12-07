@@ -35,18 +35,21 @@ We adjusted our project, modeling it after the classic "Doodle Jump" game. Long 
 3. Doodle Jumping
 4. Doodle moving left and Right
 5. Doodle Flips Direction
+6. A "best time" functionality
 
 ### Classes
 
-The Doodle Class - Doodle.py: In this class, we are able to create a "bearcat" that acts as our doodle in the game. We also created the methods for gravity, jumping, and and update method including our collision code.
+The Baseplatform Class = Baseplatform.py: Perhaps our most simple class, we initialized the class to create a "grounding" for our Bearcat.
+
+The BestTime Class = BestTime.py: In this class, we developed methods for our game to display a "Best Time", satisfying the data permeance objective.
 
 The Button Class - Button.py: In the Button class, we created a method to actually draw the button, and then also a method that allows the user to click said button.
 
-The Springs Class - Springs.py: Hopefully, we will be able to code more in the Springs class in the coming days.
+The Doodle Class - Doodle.py: In this class, we are able to create a "bearcat" that acts as our doodle in the game. We also created the methods for gravity, jumping, and and update method including our collision code.
 
 The Platforms Class = Platforms.py: In this class, we created a method to create the platforms, and also wrote code to make the platforms appear randomly in the window.
 
-The Baseplatform Class = Baseplatform.py: Perhaps our most simple class, we initialized the class to create a "grounding" for our Bearcat.
+The Springs Class - Springs.py: Hopefully, we will be able to code more in the Springs class in the coming days.
 
 ## ATP
 
@@ -63,6 +66,12 @@ The Baseplatform Class = Baseplatform.py: Perhaps our most simple class, we init
 |5  | Press Spacebar. | This will move the Bearcat up smoothly. |
 
 |6  | Land on a platform utilizing steps 4 and 5 | This will cause the Bearcat to "land" on a platform. |
+
+|7  | Reach the top (y=0) | This will end the game and stop the timer, it will display the reset screen |
+
+|8  | Press "Reset" | This will restart the game while also displaying the lowest time it took to reach the top |
+
+|9  | Press "Quit" | This will close the window |
 
 
 
