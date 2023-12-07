@@ -190,8 +190,10 @@ class Controller:
     """
     Resets the game to get ready for a new one
     """
+    current_best_time = self.best_time_manager.best_time
     self.timer = 0
-    self.best_time_manager.save_best_time()
+    if self.timer < current_best_time:
+      self.best_time_manager.save_best_time()
     self.best_time_manager.load_best_time()
     self.base_platform = Baseplatform(x=0, y = 590, width = 600, height = 10, color = "dark olive green")
     self.platforms = Platforms.create_platforms()
