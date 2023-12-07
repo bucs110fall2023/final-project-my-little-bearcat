@@ -6,7 +6,7 @@ class BestTime:
         """
         Creates a new Best Time object that keeps track of the players best time
         """
-        self.best_time = float('inf')
+        self.best_time ='inf'
         self.load_best_time()
 
     def update_best_time (self, current_time):
@@ -16,7 +16,7 @@ class BestTime:
         Args: float - current_time: The players current time in game
         """
         if current_time < self.best_time:
-            self.best_time = current_time
+            self.best_time = str(current_time)
             self.save_best_time()
             
     def save_best_time(self):
