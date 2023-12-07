@@ -139,14 +139,14 @@ class Controller:
       self.platforms.draw(self.screen)
       #font = pygame.font.Font(None, 36)
       text = self.font.render(f'Time: {int(self.timer)} seconds', True, "black")
-      best_time_text = self.font.render(f'Best Time: {int(self.best_time_manager.best_time)} seconds', True, "black")
+      best_time_text = self.font.render(f'Best Time: {self.best_time_manager.best_time:.2f} seconds', True, "black")
       self.screen.blit(text, (10, 10))
       self.screen.blit(best_time_text, (10, 50))
 
       pygame.display.flip()
 
       if self.doodle.rect.y == 0:
-        self.best_time_manager.save_best_time()
+        self.best_time_manager.save_best_time(self.timer)
         self.STATE = "GAMEOVER"
         running = False
     self.clock.tick(30)
