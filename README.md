@@ -53,6 +53,12 @@ The Platforms Class = Platforms.py: In this class, we created a method to create
 
 The Springs Class - Springs.py: Hopefully, we will be able to code more in the Springs class in the coming days.
 
+## Modules Used and Data Permanence
+
+While of course we used pygame, we also imported "time" in order to keep track of the time it took to reach the top, "os" in order to manage the files we created and "sys" for general operations of the program.
+
+To satisfy the Data Permanence aspect of the project, we have a "Best Time" feature that retrieves and stores the lowest time it has taken the user to reach the top of the screen that is loaded in the top left and replaced if necessary.
+
 ## ATP
 
 | Step | Action | Result|
