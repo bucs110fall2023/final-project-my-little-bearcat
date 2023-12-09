@@ -59,6 +59,39 @@ While of course we used pygame, we also imported "time" in order to keep track o
 
 To satisfy the Data Permanence aspect of the project, we have a "Best Time" feature that retrieves and stores the lowest time it has taken the user to reach the top of the screen that is loaded in the top left and replaced if necessary.
 
+## Class Diagram/Description
+
+Baseplatform: self, width, height, color
+- image: The visual representation of the platform.
+- rect: The rectangular area occupied by the platform.
+
+Button: self, width, height, color, text
+- x: Top left corner coordinates on the x-axis.
+- y: Top left corner coordinates on the y-axis.
+- width: Width of the button.
+- height: Height of the button.
+- color: Color of the button.
+- text: Text displayed on the button.
+
+Controller: self, x, y ***MANAGES THE GAME!!!***
+- x: Width of the window.
+- y: Height of the window.
+
+Doodle: self, base_platform, platforms
+- base_platform: The ground where the Doodle stands.
+- platforms: Platforms where the doodle can jump.
+
+Platforms: self, x, y, width, height, color
+- width: Width of the platform.
+- height: Height of the platform.
+- image: Visual of the platform.
+- rect: The rectangular are the platform takes up on the screen.
+
+Timer: self
+- start_time: Time when timer is started.
+- end_time: The time when the timer is stopped.
+- highest_score: The elapsed time.
+    
 ## ATP
 
 | Step | Action | Result|
